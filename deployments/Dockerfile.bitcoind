@@ -1,0 +1,11 @@
+FROM alpine
+
+WORKDIR "/"
+
+RUN apk update
+RUN apk add bitcoin
+RUN apk add bitcoin-cli
+
+RUN mkdir -p /root/.bitcoin/data
+ADD bitcoin.conf /root/.bitcoin
+

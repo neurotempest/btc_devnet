@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bitcoind
+spec:
+  selector:
+    matchLabels:
+      app: bitcoind
+  template:
+    metadata:
+      labels:
+        app: bitcoind
+    spec:
+      containers:
+      - name: bitcoind
+        image: bitcoind_localnet
+        command:
+        - bitcoind
+        - -conf=/root/.bitcoin/bitcoin.conf
